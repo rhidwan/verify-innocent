@@ -1,0 +1,114 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Innocent verification </title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %} ">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+
+    <style>
+        @font-face {
+            font-family: avenir;
+            src: url("{% static 'fonts/Avenir_heavy.ttf' %}");
+        }
+
+        .font-custom {
+            font-family: avenir;
+        }
+
+        #cover {
+            background: #222 url("{% static 'img/background.jpeg' %}") center center no-repeat;
+            background-size: cover;
+            height: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        #cover-caption {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .res-text {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0px;
+        }
+
+        .border-custom {
+            border-radius: 15px;
+        }
+
+
+        .button-custom {
+            border-radius: 15px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .button-custom:hover {
+            color: white;
+            opacity: 0.95;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="cover" class="min-vh-100">
+        <div id="cover-caption">
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                        <div class="card bg-transparent text-white border-custom" style=" border-color: #acc758;">
+                            <div class="card-body font-custom">
+                                {% if status == 200 %}
+                                <img src="{% static 'img/success.svg' %} class="img-fluid" width="100px" alt="">
+
+                                <p class="res-text">
+                                    These diamonds are
+                                </p>
+                                <img src="{% static 'img/innocent-white.png' %}" class="img-responsive" alt="" width="300">
+
+                                <div class="my-3">
+                                    <a href="{% url 'view_test_result' %}" class="btn button-custom"
+                                        style="background-color: #acc758 !important;">View test Result</a>
+                                </div>
+
+                                {% elif status == 403 %} 
+                                <img src="{% static 'img/not-rec.svg' %}" class="img-fluid" width="100px" alt="">
+                       
+                                <p class="res-text">
+                                  These diamonds are not recognized.
+                                </p>
+
+                                {% elif status == 409 %}
+
+                                <img src="{% static 'img/warning.svg' %}" class="img-fluid" width="100px" alt="">
+                       
+                                <p class="res-text">
+                                  These diamonds have already been approved.
+                                </p>
+                                
+                               <div class="my-3">
+                                 <a href="{% url 'view_test_result' %}" class="btn button-custom" style="background-color: #ffc545 !important;">View test result</a>
+                               </div>
+                            
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

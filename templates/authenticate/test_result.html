@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SF cart verification </title>
+    <link rel="stylesheet" href="{% static 'css/test-result.css' %} ">
+
+    <script src="{% static 'js/test-result.js' %}" ></script>
+
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+
+</head>
+
+<body>
+    <div class='container-fluid content'>
+        <div class='row'>
+            <div class='col-xl-12'>
+                <div class='card'>
+                    <div class='card-header'>
+                        <div class='title-header'>
+                            <div class='title-text '>
+                                <span class='fa fa-file'></span>
+                                November Test Result
+                            </div>
+                            <div class='action-buttons'></div>
+                        </div>
+                    </div>
+                    <div class='card-body'>
+                    
+                            <div class='pdf-button-section float-right'>
+                                <a class="btn btn-primary" href="{% get_media_prefix %}pdf/november.pdf" download ><i class='fa fa-download'></i> Download</a>
+                         </div>
+                        
+                        <div class="row">
+                           
+                                <div class='embed-section'>
+                                    <object class='embedded-pdf' data='{% get_media_prefix %}pdf/november.pdf' style='height: 95%;' type='application/pdf'>
+                                        <embed class='embedded-pdf' src='{% get_media_prefix %}pdf/november.pdf' type='application/pdf'>
+                                    </object>
+                                </div>
+              
+                            
+                        </div>
+
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
