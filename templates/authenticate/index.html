@@ -44,6 +44,7 @@
 
         .border-custom {
             border-radius: 15px;
+            border-width: 5px;
         }
 
 
@@ -57,6 +58,26 @@
             color: white;
             opacity: 0.95;
         }
+
+        .img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .bg-custom {
+            background-color: #151515;
+        }
+
+        .icon {
+            width: 100px;
+        }
+
+        @media screen and (max-width:400px ) {
+            .icon {
+                width: 70px;
+            }
+        }
+
     </style>
 </head>
 
@@ -66,15 +87,11 @@
             <div class="container">
                 <div class="row text-white">
                     <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-                        <div class="card bg-transparent text-white border-custom" style=" border-color: #acc758;">
+                        <div class="card bg-custom text-white border-custom" style=" border-color: #acc758;">
                             <div class="card-body font-custom">
                                 {% if status == 200 %}
-                                <img src="{% static 'img/success.svg' %} class="img-fluid" width="100px" alt="">
-
-                                <p class="res-text">
-                                    These diamonds are
-                                </p>
-                                <img src="{% static 'img/innocent-white.png' %}" class="img-responsive" alt="" width="300">
+                                <img src="{% static 'img/success.svg' %}" class="icon" alt="success-icon">
+                                <img src="{% static 'img/innocent.png' %}" class="img" alt="success-text"> 
 
                                 <div class="my-3">
                                     <a href="{% url 'view_test_result' %}" class="btn button-custom"
@@ -82,19 +99,13 @@
                                 </div>
 
                                 {% elif status == 403 %} 
-                                <img src="{% static 'img/not-rec.svg' %}" class="img-fluid" width="100px" alt="">
-                       
-                                <p class="res-text">
-                                  These diamonds are not recognized.
-                                </p>
+                                <img src="{% static 'img/not-rec.svg' %}" class="icon" alt="error-icon">
+                                <img src="{% static 'img/not-recognized.png' %}" class="img" alt="error-text">  
 
                                 {% elif status == 409 %}
 
-                                <img src="{% static 'img/warning.svg' %}" class="img-fluid" width="100px" alt="">
-                       
-                                <p class="res-text">
-                                  These diamonds have already been approved.
-                                </p>
+                                <img src="{% static 'img/warning.svg' %}" class="icon" alt="warning-icon">
+                                <img src="{% static 'img/already-verified.png' %}" class="img" alt="warning-text">  
                                 
                                <div class="my-3">
                                  <a href="{% url 'view_test_result' %}" class="btn button-custom" style="background-color: #ffc545 !important;">View test result</a>
@@ -108,6 +119,7 @@
             </div>
         </div>
     </section>
+    
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 
