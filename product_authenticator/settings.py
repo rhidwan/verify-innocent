@@ -25,7 +25,7 @@ SECRET_KEY = '2)r!^hzfoldryu#%69c_z&l!u57gb6=^8-qjmht6^qqg=pt6(v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "verifyinnocent.com"]
+ALLOWED_HOSTS = ["localhost", '127.0.0.1' ,"verifyinnocent.com"]
 
 
 # Application definition
