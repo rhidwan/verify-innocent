@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', include('admin_honeypot.urls', namespace='honeypot')),
     path('authenticate', authenticate, name="authenticate"),
     path('generate/csv', get_csv, name="generatecsv"),
-    path('test-result', view_test_result, name="view_test_result" )
+    #path('test-result', view_test_result, name="view_test_result" )
 ]
 
 
